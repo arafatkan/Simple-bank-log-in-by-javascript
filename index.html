@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore your time</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="image/member1.png" type="image/x-icon">
+</head>
+<body>
+     <section id="section" class="h-screen w-full   justify-center items-center flex flex-col">
+        <h1 class="mb-10 text-[35px] font-normal">Welcome to your 
+            <span class="font-semibold text-orange-600">Bank</span></h1>
+
+        <div class="w-10/12 md:w-8/12 bg-blue-100 rounded-lg p-10">
+            <h1 class="text-[20px] font-semibold capitalize mb-6">please login</h1>
+            <div class="space-y-3">
+                <input id="text" class="px-3 py-[5px] w-[80%] md:w-[70%]" type="text" placeholder="Your Email Address"><br>
+                <input id="pass" class="px-3 py-[5px] w-[80%] md:w-[70%]"  type="password" placeholder="Your password"><br>
+                <button id="btn" class="px-8 rounded-lg text-[20px] hover:bg-sky-700 text-white py-1.5 bg-orange-500">
+                Submit</button>
+            </div>
+        </div>
+     </section>
+
+     <script>
+        document.getElementById('btn').addEventListener('click', function(){
+
+            const text= document.getElementById('text');
+            const textclass= text.value;
+            text.value='';
+
+           const pass=document.getElementById('pass');
+            const passclass= pass.value;
+            pass.value='';
+
+         if(textclass== 'arafat@gmail.com' && passclass=='arafat'){
+            window.location.href='second-page.html';
+         }else{
+            alert('you are invalid user');
+         }
+
+
+            
+        })
+     </script>
+</body>
+</html>

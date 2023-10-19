@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bank page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="container mx-auto bg-sky-100 mt-[20px] px-3 py-10">
+        <h1 class="text-center text-[35px] font-normal">Let's get some
+             <span class="font-semibold text-orange-700">Mooooney</span></h1>
+
+        <div class="grid grid-cols-3 gap-2 md:gap-5 mt-10">
+
+            <div class="bg-amber-500 rounded-lg py-7 text-center md:text-start md:p-7">
+                <h1 class="text-white text-[20px] font-semibold">Deposite</h1>
+                <p class="text-white  font-medium text-[40px]">$<span id="deposite">
+                    00</span></p>
+            </div>
+            <div class="bg-green-500 rounded-lg py-7 text-center md:text-start md:p-7">
+                <h1 class="text-white text-[20px] font-semibold">Withdraw</h1>
+                <p class="text-white font-medium text-[40px]">
+                    $<span id="withdraw">00</span> </p>
+            </div>
+            <div class="bg-blue-500 rounded-lg py-7 text-center md:text-start md:p-7">
+                <h1 class="text-white text-[20px] font-semibold">Balance</h1>
+                <p class="text-white font-medium text-[40px]">$<span id="balance">120</span></p>
+            </div>
+        </div>    
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
+   
+                <div class="bg-fuchsia-700 rounded-lg p-7">
+                    <h1 class="text-white text-[20px] font-medium capitalize mb-5">please Deposite</h1>
+                    <input id="class1"  class="px-5 py-1 rounded-sm" type="text" placeholder="$ Amount you want to deposite"><br>
+                    <button id="btn1" class="bg-lime-500 mt-3 px-7 rounded-md hover:bg-sky-700 text-white
+                    font-medium capitalize text-[20px] py-1.5">deposite</button>
+                </div>
+                <div class="bg-red-600 rounded-lg  p-7">
+                    <h1 class="text-white text-[20px] font-medium capitalize mb-5">please Withdraw</h1>
+                    <input id="class2" class="px-5 py-1 rounded-sm" type="text" placeholder="$ Amount you want to withdraw"><br>
+                    <button id="btn2" class="bg-lime-500 mt-3 px-7 rounded-md hover:bg-sky-700 text-white
+                    font-medium capitalize text-[20px] py-1.5">withdraw</button>
+                </div>
+
+            </div>
+    </section>
+
+
+    <script>
+ 
+         document.getElementById('btn1').addEventListener('click',function(){
+            const class1= document.getElementById('class1');
+            const classvalueString= class1.value;
+            const classvalue= parseFloat(classvalueString);
+
+            const depositeclass= document.getElementById('deposite');
+            const depositeString= depositeclass.innerText;
+            const deposite= parseFloat(depositeString);
+
+            const tottleMark= deposite+classvalue;
+            depositeclass.innerText = tottleMark;
+            class1.value='';
+
+            const balance= document.getElementById('balance');
+            const balanceString= balance.innerText;
+            const balancenumber= parseFloat(balanceString);
+
+            const tottleBalance= balancenumber+classvalue;
+
+            balance.innerText= tottleBalance;          
+         })
+
+
+         document.getElementById('btn2').addEventListener('click',function(){
+            const class2= document.getElementById('class2');
+            const classvalueString2 = class2.value;
+            const classvalue2= parseFloat(classvalueString2);
+            
+
+            const withdraw= document.getElementById('withdraw');
+            const withdrawString= withdraw.innerText;
+            const withdrawValue= parseFloat(withdrawString);
+
+            const tottleWithdraw= withdrawValue+classvalue2;
+            withdraw.innerText= tottleWithdraw;
+
+            const balance= document.getElementById('balance');
+            const balanceString= balance.innerText;
+            const balancenumber= parseFloat(balanceString);
+
+            const tottleBalance=  balancenumber - classvalue2 ;
+
+            balance.innerText= tottleBalance; 
+
+            class2.value= '';
+
+         })
+    </script>
+</body>
+</html>
